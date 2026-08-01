@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const spotsLeft = details.max_participants - details.participants.length;
         const participants = details.participants || [];
         const participantsMarkup = participants.length
-          ? `<ul class="participants-list">${participants
+          ? `<ul class="participants-list participant-list">${participants
               .map(
                 (participant) => `
                   <li class="participant-item">
