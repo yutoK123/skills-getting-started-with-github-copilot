@@ -88,6 +88,12 @@ section h3 {
   font-size: 0.95rem;
 }
 
+.participants-info {
+  margin-bottom: 8px;
+  color: #475569;
+  font-size: 0.92rem;
+}
+
 .participants-list,
 .participant-list {
   list-style: none;

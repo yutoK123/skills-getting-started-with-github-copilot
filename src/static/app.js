@@ -21,19 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
         const participants = details.participants || [];
+        const participantItems = participants
+          .map(
+            (participant) => `
+              <li class="participant-item">
+                <span class="participant-email">${participant}</span>
+                <button class="participant-remove" type="button" data-activity="${name}" data-email="${participant}" aria-label="Remove ${participant}">
+                  ✕
+                </button>
+              </li>
+            `
+          )
+          .join("");
         const participantsMarkup = participants.length
-          ? `<ul class="participants-list participant-list">${participants
-              .map(
-                (participant) => `
-                  <li class="participant-item">
-                    <span class="participant-email">${participant}</span>
-                    <button class="participant-remove" type="button" data-activity="${name}" data-email="${participant}" aria-label="Remove ${participant}">
-                      ✕
-                    </button>
-                  </li>
-                `
-              )
-              .join("")}</ul>`
+          ? `<ul class="participants-list participant-list">${participantItems}</ul>`
           : '<p class="participants-empty">No participants yet.</p>';
 
         activityCard.innerHTML = `
@@ -41,8 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
-          <div class="participants-section">
+          <div class="participants-section" data-participants-section>
             <h5>Participants</h5>
+            <p class="participants-info">Current sign-ups:</p>
             ${participantsMarkup}
           </div>
         `;
