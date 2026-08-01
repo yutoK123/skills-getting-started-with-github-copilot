@@ -42,9 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+<<<<<<< HEAD
           <div class="participants-section" data-participants-section>
             <h5>Participants</h5>
             <p class="participants-info">Current sign-ups:</p>
+=======
+          <div class="participants-section">
+            <h5>Participants</h5>
+>>>>>>> 6ebf771 (Implement participant removal feature and enhance participant display in activities)
             ${participantsMarkup}
           </div>
         `;
